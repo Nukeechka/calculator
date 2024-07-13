@@ -1,3 +1,90 @@
 * {
   font-family: "Roboto", sans-serif;
 }
+
+body {
+  background-color: #222;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.interface {
+  margin-top: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+.interface__edit {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.edit {
+  display: flex;
+  gap: 5px;
+}
+
+.edit .btn {
+  background-color: #bbbbbb;
+}
+
+.btn-clear {
+  flex-grow: 1;
+}
+
+.digits {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100px;
+  gap: 5px;
+}
+
+.digits .btn {
+  background-color: #666;
+  color: #fff;
+}
+
+.btn-digit {
+  flex-grow: 1;
+}
+
+.operators {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 5px;
+}
+
+.operators .btn {
+  background-color: orange;
+  color: #fff;
+}
+
+.display__input {
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  text-align: right;
+}
+
+.display__input:focus-visible {
+  outline: none;
+}
+
+.operators .btn.active {
+  background-color: #fff;
+  color: orange;
+}

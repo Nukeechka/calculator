@@ -18,34 +18,41 @@
     <div class="container">
       <div class="wrapper">
         <div class="display">
-          <input type="text" class="display__input" />
+          <input type="text" class="display__input" value="0" />
         </div>
         <div class="interface">
           <div class="interface__edit">
             <div class="edit">
-              <button class="btn btn-clear">AC</button>
-              <button class="btn btn-cancel">C</button>
+              <button onclick="clearDisplay()" class="btn btn-clear">AC</button>
+              <!-- <button class="btn btn-cancel">C</button> -->
             </div>
             <div class="digits">
-              <button class="btn btn-digit">9</button>
-              <button class="btn btn-digit">8</button>
-              <button class="btn btn-digit">7</button>
-              <button class="btn btn-digit">6</button>
-              <button class="btn btn-digit">5</button>
-              <button class="btn btn-digit">4</button>
-              <button class="btn btn-digit">3</button>
-              <button class="btn btn-digit">2</button>
-              <button class="btn btn-digit">1</button>
-              <button class="btn btn-digit">0</button>
-              <button class="btn btn-digit">.</button>
+              <button onclick="inputNumber(9)" class="btn btn-digit">9</button>
+              <button onclick="inputNumber(8)" class="btn btn-digit">8</button>
+              <button onclick="inputNumber(7)" class="btn btn-digit">7</button>
+              <button onclick="inputNumber(6)" class="btn btn-digit">6</button>
+              <button onclick="inputNumber(5)" class="btn btn-digit">5</button>
+              <button onclick="inputNumber(4)" class="btn btn-digit">4</button>
+              <button onclick="inputNumber(3)" class="btn btn-digit">3</button>
+              <button onclick="inputNumber(2)" class="btn btn-digit">2</button>
+              <button onclick="inputNumber(1)" class="btn btn-digit">1</button>
+              <button onclick="inputNumber(0)" class="btn btn-digit">0</button>
             </div>
           </div>
           <div class="operators">
-            <button class="btn btn-operator">/</button>
-            <button class="btn btn-operator">*</button>
-            <button class="btn btn-operator">-</button>
-            <button class="btn btn-operator">+</button>
-            <button class="btn btn-operator">=</button>
+            <button onclick="setOperator('/')" class="btn btn-operator">
+              /
+            </button>
+            <button onclick="setOperator('*')" class="btn btn-operator">
+              *
+            </button>
+            <button onclick="setOperator('-')" class="btn btn-operator">
+              -
+            </button>
+            <button onclick="setOperator('+')" class="btn btn-operator">
+              +
+            </button>
+            <button onclick="calculateResult()" class="btn btn-equal">=</button>
           </div>
         </div>
       </div>

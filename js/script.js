@@ -1,36 +1,90 @@
-const add = (numFirst, numSecond) => {
-  return numFirst + numSecond;
-};
+let firstNumber = null;
+let secondNumber = null;
+let operator = null;
+let displayValue = "0";
 
-const subtract = (numFirst, numSecond) => {
-  return numFirst - numSecond;
-};
+const display = document.querySelector(".display__input");
 
-const multiply = (numFirst, numSecond) => {
-  return numFirst * numSecond;
-};
+function clearDisplay() {
+  firstNumber = null;
+  secondNumber = null;
+  operator = null;
+  displayValue = "0";
+  updateDisplay();
+}
 
-const divide = (numFirst, numSecond) => {
-  return numFirst / numSecond;
-};
+function inputNumber(num) {
+  if (displayValue === "0") {
+    displayValue = String(num);
+  } else {
+    displayValue += String(num);
+  }
+  updateDisplay();
+}
 
-const operate = (numFirst, operator, numSecond) => {
+function setOperator(op) {
+  if (firstNumber === null) {
+    firstNumber = parseFloat(displayValue);
+  } else {
+    secondNumber = parseFloat(displayValue);
+    firstNumber = operate(operator, firstNumber, secondNumber);
+    displayValue = firstNumber.toString();
+  }
+  operator = op;
+  displayValue = "0";
+}
+
+function calculateResult() {
+  if (firstNumber !== null && operator) {
+    secondNumber = parseFloat(displayValue);
+    const result = operate(operator, firstNumber, secondNumber);
+
+    if (typeof result === "string") {
+      displayValue = result;
+    } else {
+      displayValue = result.toString();
+    }
+
+    firstNumber = null;
+    operator = null;
+  }
+  updateDisplay();
+}
+
+function updateDisplay() {
+  display.value = displayValue;
+}
+
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  if (b === 0) {
+    return "Error: Cannot divide by 0";
+  }
+  return a / b;
+}
+
+function operate(operator, a, b) {
   switch (operator) {
     case "+":
-      add(numFirst, numSecond);
-      break;
+      return add(a, b);
     case "-":
-      subtract(numFirst, numSecond);
-      break;
+      return subtract(a, b);
     case "*":
-      multiply(numFirst, numSecond);
-      break;
+      return multiply(a, b);
     case "/":
-      divide(numFirst, numSecond);
-      break;
+      return divide(a, b);
+    default:
+      return null;
   }
-};
-
-let numFirst;
-let numSecond;
-let operator;
+}
